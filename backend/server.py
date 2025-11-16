@@ -10,6 +10,8 @@ from typing import List, Optional
 from datetime import timedelta
 import base64
 import uuid
+import certifi
+import ssl
 
 from models import (
     Property, PropertyCreate, PropertyUpdate,
