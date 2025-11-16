@@ -38,4 +38,7 @@ logs/
 
 # Misc
 .cache/
-*.orig
+*.orig-e 
+# Environment files
+*.env
+*.env.*
