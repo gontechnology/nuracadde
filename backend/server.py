@@ -29,9 +29,10 @@ load_dotenv(ROOT_DIR / '.env')
 
 # MongoDB connection
 mongo_url = os.environ['MONGO_URL']
-# Motor için SSL ayarları
+# Motor için SSL ayarları - certifi ile
 client = AsyncIOMotorClient(
     mongo_url,
+    tlsCAFile=certifi.where(),
     serverSelectionTimeoutMS=5000,
     connectTimeoutMS=10000
 )
