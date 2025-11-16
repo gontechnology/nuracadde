@@ -28,14 +28,12 @@ from auth import (
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# MongoDB connection
+# MongoDB connection - Senkron pymongo kullan (SSL sorunu için)
 mongo_url = os.environ['MONGO_URL']
-# Motor için SSL ayarları - TLS sorununu atla
-client = AsyncIOMotorClient(
+client = MongoClient(
     mongo_url,
     tls=True,
     tlsAllowInvalidCertificates=True,
-    tlsAllowInvalidHostnames=True,
     serverSelectionTimeoutMS=5000,
     connectTimeoutMS=10000
 )
